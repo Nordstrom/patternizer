@@ -1,0 +1,40 @@
+{
+  "name": "indexpatterncreator",
+  "version": "0.0.1",
+  "description": "This plugin allow you to create index pattern if it does not exist",
+  "main": "index.js",
+  "kibana": {
+    "version": "6.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Nordstrom/kibana-indexpattern-creator"
+  },
+  "scripts": {
+    "lint": "eslint",
+    "start": "plugin-helpers start",
+    "test:server": "plugin-helpers test:server",
+    "test:browser": "plugin-helpers test:browser",
+    "build": "plugin-helpers build",
+    "postinstall": "plugin-helpers postinstall",
+    "gather-info": "node gather-info.js"
+  },
+  "dependencies": {
+    "sugar-date": "1.5.1",
+    "handlebars": "4.0.6",
+    "lodash.get": "4.4.2",
+    "lodash.set": "4.3.2",
+    "lodash.escape": "4.0.1"
+  },
+  "devDependencies": {
+    "@elastic/eslint-config-kibana": "^0.6.1",
+    "@elastic/plugin-helpers": "^7.0.0",
+    "babel-eslint": "^7.2.3",
+    "eslint": "^3.19.0",
+    "eslint-plugin-babel": "^4.1.1",
+    "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-mocha": "^4.9.0",
+    "eslint-plugin-react": "^7.0.1",
+    "expect.js": "^0.3.1"
+  }
+}
