@@ -9,7 +9,7 @@ before_deploy:
 - mkdir kibana
 - cp -R indexpatterncreator kibana/
 - rm -rf indexpatterncreator/node_modules
-- zip -r indexpatterncreator-6.1.1-1.zip kibana
+- zip -r indexpatterncreator-6.1.1.zip kibana
 - rm -rf kibana
 deploy:
   provider: releases
