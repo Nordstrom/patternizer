@@ -8,7 +8,7 @@ export default function (kibana) {
         uiExports: {
 
             app: {
-                title: 'IndexPatternCreator',
+                title: 'Patternizer',
                 description: 'This plugin allow you to create index pattern if it does not exist',
                 main: 'plugins/indexpatterncreator/app',
                 icon: 'plugins/indexpatterncreator/icon.svg'

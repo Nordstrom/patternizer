@@ -16,9 +16,9 @@ uiRoutes
 uiModules
     .get('app/indexpatterncreator', [])
     .controller('createIndexPattern', function ($scope, $location, $route, $interval, $http) {
-        $scope.title = 'IndexPatternCreator';
+        $scope.title = 'Patternizer';
         $scope.finishLoad = false;
-        $scope.description = 'IndexPatternCreator';
+        $scope.description = 'Patternizer';
         $scope.icon = "";
 
         $scope.location = $location;

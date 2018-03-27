@@ -1,4 +1,4 @@
-# indexpatterncreator
+# patternizer
 
 [![Build Status](https://api.travis-ci.org/Nordstrom/indexpatterncreator.svg?branch=master)](https://travis-ci.org/Nordstrom/indexpatterncreator)
 
