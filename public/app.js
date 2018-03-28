@@ -35,7 +35,7 @@ uiModules
           var baseurl = $location.$$absUrl.split('/app')[0]
           $scope.target = ($location.search()).target;
           if(typeof $scope.target === 'undefined') {
-            $scope.welcomemessage = 'Welcome to Index Pattern Creator'
+            $scope.welcomemessage = 'Welcome to Patternizer'
             $scope.link = 'click here to create a new index pattern'
             //window.location.href=baseurl + "/app/kibana#/management"
           }else{
