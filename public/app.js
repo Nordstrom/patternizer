@@ -35,24 +35,26 @@ uiModules
           $scope.target = ($location.search()).target;
           var request = {'timeFieldName': '@timestamp', 'title': $scope.target};
           $http.post('../api/getIndexDocumentCount', request).then((response) => {
-          if(typeof $scope.target === 'undefined') {
-            $scope.welcomemessage = 'Welcome to Patternizer'
-            $scope.link = 'click here to create a new index pattern'
-          }else{
-           $http.post('../api/getIndexPattern', request).then((response, error) => {
-             $scope.found = response.data.found;
-             $scope.indextarget = 'Index pattern ' + $scope.target
-             $scope.link = 'click here'
-             if($scope.found){
-               window.location.href=baseurl + "/goto/shorturl" + $scope.target
-               //$scope.message = 'already exists'
-               //$scope.createmessage = 'to view'
-             }else{
-               $scope.message = 'does not exist'
-               $scope.createmessage = 'to create one'
-             }
-          });
-         }
+            if(response.data.count > 0){
+                if(typeof $scope.target === 'undefined') {
+                  $scope.welcomemessage = 'Welcome to Patternizer'
+                  $scope.link = 'click here to create a new index pattern'
+                }else{
+                 $http.post('../api/getIndexPattern', request).then((response, error) => {
+                   $scope.found = response.data.found;
+                   $scope.indextarget = 'Index pattern ' + $scope.target
+                   $scope.link = 'click here'
+                   if($scope.found){
+                     window.location.href=baseurl + "/goto/shorturl" + $scope.target
+                   }else{
+                     $scope.message = 'does not exist'
+                     $scope.createmessage = 'to create one'
+                   }
+                });
+              }
+           } else {
+              $scope.welcomemessage = 'Index does not have data, please retry again after sending data'
+           }
         });
       }
 
