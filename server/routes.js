@@ -95,4 +95,24 @@ export default function (server) {
         );
       }
     });
+
+    server.route({
+      path: '/api/getIndexDocumentCount',
+      method: 'POST',
+      handler(req, reply) {
+        let request = {
+            index: req.payload.title,
+            type: 'logs',
+            id: '_count'
+        };
+        callWithRequest(req,'get', request).then(function (response) {
+          console.log(response)
+          reply(response);
+          },
+          function (error) {
+              reply(null);
+          }
+        );
+      }
+    });
 };

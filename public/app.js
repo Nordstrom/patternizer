@@ -31,28 +31,29 @@ uiModules
         }
 
         $scope.init = function () {
-          //alert("hi2")
           var baseurl = $location.$$absUrl.split('/app')[0]
           $scope.target = ($location.search()).target;
+          var request = {'timeFieldName': '@timestamp', 'title': $scope.target};
+          $http.post('../api/getIndexDocumentCount', request).then((response) => {
           if(typeof $scope.target === 'undefined') {
             $scope.welcomemessage = 'Welcome to Patternizer'
             $scope.link = 'click here to create a new index pattern'
-            //window.location.href=baseurl + "/app/kibana#/management"
           }else{
-           var request = {'timeFieldName': '@timestamp', 'title': $scope.target};
            $http.post('../api/getIndexPattern', request).then((response, error) => {
              $scope.found = response.data.found;
              $scope.indextarget = 'Index pattern ' + $scope.target
              $scope.link = 'click here'
              if($scope.found){
-               $scope.message = 'already exists'
-               $scope.createmessage = 'to view'
+               window.location.href=baseurl + "/goto/shorturl" + $scope.target
+               //$scope.message = 'already exists'
+               //$scope.createmessage = 'to view'
              }else{
                $scope.message = 'does not exist'
                $scope.createmessage = 'to create one'
              }
           });
          }
+        });
       }
 
       $scope.createPattern = function () {
