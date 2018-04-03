@@ -11,7 +11,7 @@ export default function (kibana) {
                 title: 'Patternizer',
                 description: 'This plugin allow you to create index pattern if it does not exist',
                 main: 'plugins/indexpatterncreator/app',
-                icon: 'plugins/indexpatterncreator/icon.svg'
+                //icon: 'plugins/indexpatterncreator/icon.svg'
             }
 
         },
