@@ -10,7 +10,7 @@ export default function (kibana) {
             app: {
                 title: 'Patternizer',
                 description: 'This plugin allow you to create index pattern if it does not exist',
-                main: 'plugins/indexpatterncreator/app',
+                main: 'plugins/patternizer/app',
                 //icon: 'plugins/indexpatterncreator/icon.svg'
             }
 
