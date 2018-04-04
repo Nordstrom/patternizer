@@ -23,7 +23,6 @@ export default function (server) {
             id: 'index-pattern:' + req.payload.title
         };
         callWithRequest(req,'get', request).then(function (response) {
-          //console.log(response.found)
           reply(response);
           },
           function (error) {
@@ -37,7 +36,6 @@ export default function (server) {
         path: '/api/createIndexPattern',
         method: 'POST',
         handler(req, reply) {
-          //console.log(req.payload)
           let body = {
             'type':'index-pattern',
             'index-pattern' :{'timeFieldName': req.payload.timeFieldName, 'title': req.payload.title}
