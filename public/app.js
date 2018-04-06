@@ -45,7 +45,17 @@ uiModules
                      $scope.indextarget = 'Index pattern ' + $scope.target
                      $scope.link = 'click here'
                      if($scope.found){
-                       window.location.href=baseurl + "/goto/shorturl" + $scope.target
+                       $http.post('../api/getShortUrl', request).then((response) => {
+                         $scope.urlfound = response.data.found;
+                         if($scope.urlfound){
+                           window.location.href=baseurl + "/goto/shorturl" + $scope.target
+                         }
+                         if(typeof $scope.urlfound === 'undefined'){
+                           $http.post('../api/createShortUrl', request).then((response) => {
+                             window.location.href=baseurl + "/goto/shorturl" + $scope.target
+                           });
+                         }
+                       });
                      }else{
                        $scope.message = 'does not exist'
                        $scope.createmessage = 'to create one'
