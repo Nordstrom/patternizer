@@ -15,7 +15,7 @@ deploy:
   provider: releases
   api_key:
     secure: DXak8lWw4iM5nagqzjMob3UunO4lQJJI+DuRFM8wY9MgrAcRBp5I7kO9qW9LjzYiIRuT8hJIXHu5jeL2zICf4Gvjp6qYGB7hlEfjl3bp9AicqjoNWfxS+/6HS2PnoZJFSU29btKYdM3wG8k3wrSoE5PyeFa6w1CS9jVSVjzCPmwUcaj5p3N0+OyfDJqY0WwpCQuDMV7rxG594aF+7DCaCOkOf8wQLSnX7uH3PHxL0beO2tJt7kYXg/Hq3P2QUERuP73etKbIFq3Oje7/uIXg5TNk3CdQAUo/J5PVFUnhq6isRnuTohpvz2jOBz4aL1HKVl8io/GUVrAW7w6GnuC8t+ku86RwXvtFC4FJFV/OLfXk9H0b88oDTAELap7pNkdaPqib0+kPBUycjH0xvEmhUC61ydhCHJxyXCz6HmS6XpHpr+3ukeFm1ZRDc53KRCKieYLfFYkOUCeWPs2wu5yCYyxbmx9f2b+I9AnCYnm4hJYKg8oWGrUQP2r7rEMDUNoCYj1H1R2tZzc15EKyG9nGO4Ep0geVkYVupsh9PyYTEHiKeHq/AiD4fpKYYLbj48tCUwf2pQ7EmNzuNzkxnGEq4UJSuaqXBf4UAH+pic8eD+Y555Ylcpb2KB/DXA4MJLeu7SLjRmP6fUTliS2W4NLWSW8/Hs8idBQLEb0nNC0Om70=
-  file: patternizer-6.1.1.zip
+  file: patternizer-6.2.4.zip
   on:
     repo: Nordstrom/patternizer
     tags: true
