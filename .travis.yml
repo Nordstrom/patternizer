@@ -9,7 +9,7 @@ before_deploy:
 - mkdir kibana
 - cp -R patternizer kibana/
 - rm -rf patternizer/node_modules
-- zip -r patternizer-6.1.1.zip kibana
+- zip -r patternizer-6.2.4.zip kibana
 - rm -rf kibana
 deploy:
   provider: releases
