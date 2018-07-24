@@ -56,7 +56,7 @@ export default function (server) {
         path: '/api/createShortUrl',
         method: 'POST',
         handler(req, reply) {
-          var suburl = "/app/kibana#/discover?_g=(refreshInterval:(display:Off,pause:!f,value:0),time:(from:now%2Fd,mode:quick,to:now%2Fd))&_a=(columns:!(_source),index:" + "'" + req.payload.title + "'" + ",interval:auto,query:(language:lucene,query:''),sort:!('@timestamp',desc))"
+          var suburl = "/app/kibana#/discover?_g=(refreshInterval:(display:Off,pause:!f,value:0),time:(from:now-1h,mode:quick,to:now))&_a=(columns:!(_source),index:" + "'" + req.payload.title + "'" + ",interval:auto,query:(language:lucene,query:''),sort:!('@timestamp',desc))"
           let body = {
             'type':'url',
             'url' : {'url': suburl }
