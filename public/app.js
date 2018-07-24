@@ -48,7 +48,6 @@ uiModules
                      $scope.link = 'click here'
                      if($scope.count > 0){
                        patternId = response.data.hits.hits[0]._id
-                       alert(patternId)
                        $http.post('../api/getShortUrl', request).then((response) => {
                          $scope.urlfound = response.data.found;
                          if($scope.urlfound){
