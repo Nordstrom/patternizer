@@ -20,9 +20,9 @@ export default function (server) {
         let request = {
             index: '.kibana',
             type: 'doc',
-            id: 'index-pattern:' + req.payload.title
+            body:JSON.parse('{"query": {"bool": {"must": [{"match_phrase": {"index-pattern.title": {"query": "'+req.payload.title+'"}}}]}},"_source": ""}')
         };
-        callWithRequest(req,'get', request).then(function (response) {
+        callWithRequest(req,'search', request).then(function (response) {
           reply(response);
           },
           function (error) {
@@ -83,8 +83,6 @@ export default function (server) {
             id: 'url:shorturl' + req.payload.title
         };
         callWithRequest(req,'get', request).then(function (response) {
-          console.log(response)
-          console.log(response.found)
           reply(response);
           },
           function (error) {
@@ -104,7 +102,6 @@ export default function (server) {
             id: '_count'
         };
         callWithRequest(req,'get', request).then(function (response) {
-          console.log(response)
           reply(response);
           },
           function (error) {

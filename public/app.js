@@ -34,6 +34,7 @@ uiModules
           var baseurl = $location.$$absUrl.split('/app')[0]
           $scope.target = ($location.search()).target;
           var request = {'timeFieldName': '@timestamp', 'title': $scope.target};
+          var patternId = ""
           $http.post('../api/getIndexDocumentCount', request).then((response) => {
               if(typeof $scope.target === 'undefined') {
                   $scope.welcomemessage = 'Welcome to Patternizer'
@@ -41,11 +42,25 @@ uiModules
               } else{
                   if(response.data.count > 0){
                    $http.post('../api/getIndexPattern', request).then((response, error) => {
-                     $scope.found = response.data.found;
+                     $scope.count = response.data.hits.total;
+                     $scope.found = $scope.count > 0 ? true : false;
                      $scope.indextarget = 'Index pattern ' + $scope.target
                      $scope.link = 'click here'
-                     if($scope.found){
-                       window.location.href=baseurl + "/goto/shorturl" + $scope.target
+                     if($scope.count > 0){
+                       patternId = response.data.hits.hits[0]._id
+                       alert(patternId)
+                       $http.post('../api/getShortUrl', request).then((response) => {
+                         $scope.urlfound = response.data.found;
+                         if($scope.urlfound){
+                           window.location.href=baseurl + "/goto/shorturl" + $scope.target
+                         }
+                         if(typeof $scope.urlfound === 'undefined'){
+                           var createUrlReq = {'timeFieldName': '@timestamp', 'title': patternId.substring(14)}
+                           $http.post('../api/createShortUrl', createUrlReq).then((response) => {
+                             window.location.href=baseurl + "/goto/shorturl" + $scope.target
+                           });
+                         }
+                       });
                      }else{
                        $scope.message = 'does not exist'
                        $scope.createmessage = 'to create one'
