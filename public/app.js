@@ -47,16 +47,16 @@ uiModules
                      $scope.indextarget = 'Index pattern ' + $scope.target
                      $scope.link = 'click here'
                      if($scope.count > 0){
-                       patternId = response.data.hits.hits[0]._id
-                       $http.post('../api/getShortUrl', request).then((response) => {
+                       patternId = response.data.hits.hits[0]._id.substring(14)
+                       var urlReq = {'timeFieldName': '@timestamp', 'title': patternId}
+                       $http.post('../api/getShortUrl', urlReq).then((response) => {
                          $scope.urlfound = response.data.found;
                          if($scope.urlfound){
-                           window.location.href=baseurl + "/goto/shorturl" + $scope.target
+                           window.location.href=baseurl + "/goto/shorturl" + patternId
                          }
                          if(typeof $scope.urlfound === 'undefined'){
-                           var createUrlReq = {'timeFieldName': '@timestamp', 'title': patternId.substring(14)}
-                           $http.post('../api/createShortUrl', createUrlReq).then((response) => {
-                             window.location.href=baseurl + "/goto/shorturl" + $scope.target
+                           $http.post('../api/createShortUrl', urlReq).then((response) => {
+                             window.location.href=baseurl + "/goto/shorturl" + patternId
                            });
                          }
                        });
